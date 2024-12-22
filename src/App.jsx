@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <h1>Authentication Demo</h1>
+      <h1>Bem vindos em nossos Négocios </h1>
       {token ? (
         <>
           <ProtectedRoute
