@@ -17,7 +17,7 @@ export const mockLogin = (username, password) => {
     data: {
       name: "John Doe",
       email: "john@example.com",
-      compras: [
+      purchases: [
         { id: 1, item: "Laptop", price: 2500 },
         { id: 2, item: "Smartphone", price: 1200 },
       ],

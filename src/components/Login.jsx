@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Login = ({ onLogin }) => {
+const Login = ({ onLogin, error }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -12,10 +12,11 @@ const Login = ({ onLogin }) => {
   return (
     <div className="container">
       <h1>Login</h1>
+      {error && <p className="error-message">{error}</p>} 
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Nome : 
+            Nome :
             <input
               type="text"
               value={username}
@@ -26,7 +27,7 @@ const Login = ({ onLogin }) => {
         </div>
         <div>
           <label>
-            Senha: 
+            Senha:
             <input
               type="password"
               value={password}
