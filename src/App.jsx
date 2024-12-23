@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { login } from "./api";
 import Login from "./components/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/PrivateRoute";
 
 function App() {
   const [token, setToken] = useState(null);

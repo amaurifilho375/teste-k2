@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getUserData, getAdminData } from "../api";
-import "./ProtectedRoute.css";
+import "./PrivateRoute.css";
 
 const ProtectedRoute = ({ token, isAdmin }) => {
   const [data, setData] = useState(null);

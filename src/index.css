@@ -58,3 +58,9 @@ button:hover {
 h1, h2 {
   color: var(--primary-color);
 }
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
