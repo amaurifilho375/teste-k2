@@ -15,7 +15,7 @@ const Login = ({ onLogin }) => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>
-            Username:
+            Nome : 
             <input
               type="text"
               value={username}
@@ -26,7 +26,7 @@ const Login = ({ onLogin }) => {
         </div>
         <div>
           <label>
-            Password:
+            Senha: 
             <input
               type="password"
               value={password}

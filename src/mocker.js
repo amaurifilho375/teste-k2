@@ -13,11 +13,11 @@ export const mockLogin = (username, password) => {
   };
   
   export const mockUserData = () => ({
-    message: "Hello, user!",
+    message: "Bem vindo, Usuário Padrão!",
     data: {
       name: "John Doe",
       email: "john@example.com",
-      purchases: [
+      compras: [
         { id: 1, item: "Laptop", price: 2500 },
         { id: 2, item: "Smartphone", price: 1200 },
       ],
@@ -25,7 +25,7 @@ export const mockLogin = (username, password) => {
   });
   
   export const mockAdminData = () => ({
-    message: "Hello, admin!",
+    message: "Bem vindo, Usuário Admin!",
     data: {
       name: "Jane Admin",
       email: "admin@example.com",

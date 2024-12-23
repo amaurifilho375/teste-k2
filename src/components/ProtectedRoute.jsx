@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getUserData, getAdminData } from "../api";
+import "./ProtectedRoute.css";
 
 const ProtectedRoute = ({ token, isAdmin }) => {
-    console.log('isAdmin', isAdmin)
-    console.log('response1', getUserData)
-    console.log('response2', getAdminData)
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -27,11 +25,37 @@ const ProtectedRoute = ({ token, isAdmin }) => {
     return <p>Loading...</p>;
   }
 
+  const { message, data: userInfo } = data;
+
   return (
-    <div className="container">
-      <h1>{isAdmin ? "Pagina de Admin" : "Pagina de Usuário comum"}</h1>
-      <div className="card">
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+    <div className="protected-route-container">
+      <h1>{isAdmin ? "Dashboard de Admin" : "Dashboard de Usuário Padrão"}</h1>
+      <h2>{message}</h2>
+      <div className="info-card">
+        <p><strong>Nome:</strong> {userInfo.name}</p>
+        <p><strong>Email:</strong> {userInfo.email}</p>
+
+        {isAdmin ? (
+          <div>
+            <h3>Permissões:</h3>
+            <ul>
+              {userInfo.permissions.map((permission, index) => (
+                <li key={index}>{permission}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div>
+            <h3>Compras:</h3>
+            <ul>
+              {userInfo.purchases.map((purchase) => (
+                <li key={purchase.id}>
+                  <strong>Item:</strong> {purchase.item} | <strong>Price:</strong> ${purchase.price}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );

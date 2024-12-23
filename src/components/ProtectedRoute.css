@@ -1,0 +1,60 @@
+.protected-route-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2e7d32; /* Verde escuro */
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #43a047; /* Verde médio */
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  
+  .info-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-card p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .info-card h3 {
+    margin-top: 20px;
+    color: #2e7d32; /* Verde escuro */
+  }
+  
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  ul li {
+    background: #e8f5e9; /* Fundo verde claro */
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1b5e20; /* Verde mais intenso */
+  }
+  
+  ul li strong {
+    color: #2e7d32; /* Verde escuro */
+  }
+  
