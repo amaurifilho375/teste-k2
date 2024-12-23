@@ -1,11 +1,18 @@
-import axios from "axios";
 import { mockLogin, mockUserData, mockAdminData } from "./mocker";
 
 const API_URL = "https://api-onecloud.multicloud.tivit.com/fake";
 
 export const login = async (username, password) => {
   try {
-    const url = `${API_URL}/token?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+    const isMock = true; 
+    if (isMock) {
+      const mockResponse = mockLogin(username, password);
+      return mockResponse.access_token;
+    }
+
+    const url = `${API_URL}/token?username=${encodeURIComponent(
+      username
+    )}&password=${encodeURIComponent(password)}`;
     const response = await axios.post(url);
 
     if (response.status === 200 && response.data.access_token) {
@@ -20,7 +27,6 @@ export const login = async (username, password) => {
 };
 
 export const getUserData = async (token) => {
-  console.log("token:", token);
   try {
     const isMock = true; 
     if (isMock) {

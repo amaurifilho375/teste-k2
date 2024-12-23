@@ -1,8 +1,11 @@
-// Mock para o login
 export const mockLogin = (username, password) => {
-    if (username === "admin" && password === "admin123") {
+    if (username === "admin" && password === "JKSipm0YH") {
       return {
         access_token: "mocked_admin_token", 
+      };
+    } else if (username === "user" && password === "L0XuwPOdS5U") {
+      return {
+        access_token: "mocked_user_token", 
       };
     } else {
       throw new Error("Credenciais inválidas.");

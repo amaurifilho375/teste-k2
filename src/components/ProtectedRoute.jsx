@@ -1,41 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getUserData, getAdminData } from "../api";
 
-function ProtectedRoute({ token }) {
-  const [userData, setUserData] = useState(null);
-  const [adminData, setAdminData] = useState(null);
-  const [error, setError] = useState("");
+const ProtectedRoute = ({ token, isAdmin }) => {
+    console.log('isAdmin', isAdmin)
+    console.log('response1', getUserData)
+    console.log('response2', getAdminData)
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleAccessUser = async () => {
-    try {
-      const data = await getUserData(token);
-      setUserData(data);
-      setError("");
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = isAdmin ? await getAdminData(token) : await getUserData(token);
+        setData(response);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const handleAccessAdmin = async () => {
-    try {
-      const data = await getAdminData(token);
-      setAdminData(data);
-      setError("");
-    } catch (err) {
-      setError(err.message);
-    }
-  };
+    fetchData();
+  }, [token, isAdmin]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
-    <div>
-      <h2>Protected Routes</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button onClick={handleAccessUser}>Access /user</button>
-      <button onClick={handleAccessAdmin}>Access /admin</button>
-      {userData && <pre>{JSON.stringify(userData, null, 2)}</pre>}
-      {adminData && <pre>{JSON.stringify(adminData, null, 2)}</pre>}
+    <div className="container">
+      <h1>{isAdmin ? "Admin Page" : "User Page"}</h1>
+      <div className="card">
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </div>
     </div>
   );
-}
+};
 
 export default ProtectedRoute;

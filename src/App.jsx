@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { login } from "./api";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AdminPage from "./pages/AdminPage";
-import UserPage from "./pages/UserPage";
 
 function App() {
   const [token, setToken] = useState(null);
@@ -19,17 +17,13 @@ function App() {
     }
   };
 
+  const isAdmin = token === "mocked_admin_token";
+
   return (
     <div>
-      <h1>Bem vindos em nossos Négocios </h1>
+      <h1>Bem-vindo ao nosso Sistema</h1>
       {token ? (
-        <>
-          <ProtectedRoute
-            token={token}
-            renderAdminPage={() => <AdminPage token={token} />}
-            renderUserPage={() => <UserPage token={token} />}
-          />
-        </>
+        <ProtectedRoute token={token} isAdmin={isAdmin} />
       ) : (
         <Login onLogin={handleLogin} error={error} />
       )}
