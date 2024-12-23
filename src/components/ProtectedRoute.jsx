@@ -29,7 +29,7 @@ const ProtectedRoute = ({ token, isAdmin }) => {
 
   return (
     <div className="container">
-      <h1>{isAdmin ? "Admin Page" : "User Page"}</h1>
+      <h1>{isAdmin ? "Pagina de Admin" : "Pagina de Usuário comum"}</h1>
       <div className="card">
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>

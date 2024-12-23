@@ -20,7 +20,7 @@ function UserPage({ token }) {
 
   return (
     <div>
-      <h2>User Page</h2>
+      <h2>Pagina de Usuario Padão</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {userData ? (
         <pre>{JSON.stringify(userData, null, 2)}</pre>
